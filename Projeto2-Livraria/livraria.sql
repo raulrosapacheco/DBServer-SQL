@@ -1,18 +1,23 @@
 /* Projeto Livraria */
 
-CREATE DATABASE LIVRARIA
+CREATE DATABASE LIVRARIA;
 
-USE LIVRARIA
+SHOW DATABASES;
+
+USE LIVRARIA;
+
+/* CONSIGO VERIFICAR EM QUE LIVRARIA ESTOU */
+STATUS;
 
 CREATE TABLE LIVROS(
 	LIVRO VARCHAR(100),
 	AUTOR VARCHAR(100),
 	SEXO CHAR(1),
-	PAGINAS INT(5)
+	PAGINAS INT(5),
 	EDITORA VARCHAR(30),
-	VALOR FLOAT(10,2)
-	UF = VARCHAR(2)
-	ANO = INT(4)
+	VALOR FLOAT(10,2),
+	UF CHAR(2),
+	ANO INT(4)
 );
 
 SHOW TABLES;
@@ -36,7 +41,7 @@ INSERT INTO LIVROS VALUES('O poder da mente','Clara Mafra','F',120,'Continental'
 SELECT * FROM LIVROS;
 
 /* Trazer o nome do livro e o nome da editora */
-SELECT NOME, EDITORA FROM LIVROS;
+SELECT LIVRO, EDITORA FROM LIVROS;
 
 /* Trazer o nome do livro e a UF dos livros publicados por autores do sexo masculino. */
 SELECT LIVRO, UF FROM LIVROS WHERE SEXO = 'M';
@@ -45,8 +50,8 @@ SELECT LIVRO, UF FROM LIVROS WHERE SEXO = 'M';
 SELECT LIVRO, PAGINAS FROM LIVROS WHERE SEXO = 'M';
 
 /* Trazer os valores dos livros das editoras de São Paulo. */
-SELECT LIVRO, VALOR FROM LIVROS WHERE UF 'SP';
+SELECT LIVRO, VALOR FROM LIVROS WHERE UF = 'SP';
 
 /* Trazer os dados dos autores do sexo masculino que tiveram livros publicados por 
 São Paulo ou Rio de Janeiro (Questão Desafio).*/
-
+SELECT AUTOR, SEXO FROM LIVROS WHERE SEXO = 'M' AND (UF = 'SP' OR UF = 'RJ');
