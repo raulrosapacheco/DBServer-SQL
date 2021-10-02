@@ -55,3 +55,9 @@ SELECT LIVRO, VALOR FROM LIVROS WHERE UF = 'SP';
 /* Trazer os dados dos autores do sexo masculino que tiveram livros publicados por 
 São Paulo ou Rio de Janeiro (Questão Desafio).*/
 SELECT AUTOR, SEXO FROM LIVROS WHERE SEXO = 'M' AND (UF = 'SP' OR UF = 'RJ');
+
+SELECT AUTOR, SEXO, UF
+FROM LIVROS
+WHERE SEXO = 'M'
+AND UF = 'SP'
+AND paginas > 100;
